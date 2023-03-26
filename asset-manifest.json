@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/BogdanYeshchenko.github.io/goit-react-hw-03-image-finder/static/css/main.f8bbdd90.css",
-    "main.js": "/BogdanYeshchenko.github.io/goit-react-hw-03-image-finder/static/js/main.51096cbf.js",
+    "main.css": "/BogdanYeshchenko.github.io/goit-react-hw-03-image-finder/static/css/main.6a49e443.css",
+    "main.js": "/BogdanYeshchenko.github.io/goit-react-hw-03-image-finder/static/js/main.a4daddc7.js",
     "index.html": "/BogdanYeshchenko.github.io/goit-react-hw-03-image-finder/index.html",
-    "main.f8bbdd90.css.map": "/BogdanYeshchenko.github.io/goit-react-hw-03-image-finder/static/css/main.f8bbdd90.css.map",
-    "main.51096cbf.js.map": "/BogdanYeshchenko.github.io/goit-react-hw-03-image-finder/static/js/main.51096cbf.js.map"
+    "main.6a49e443.css.map": "/BogdanYeshchenko.github.io/goit-react-hw-03-image-finder/static/css/main.6a49e443.css.map",
+    "main.a4daddc7.js.map": "/BogdanYeshchenko.github.io/goit-react-hw-03-image-finder/static/js/main.a4daddc7.js.map"
   },
   "entrypoints": [
-    "static/css/main.f8bbdd90.css",
-    "static/js/main.51096cbf.js"
+    "static/css/main.6a49e443.css",
+    "static/js/main.a4daddc7.js"
   ]
 }

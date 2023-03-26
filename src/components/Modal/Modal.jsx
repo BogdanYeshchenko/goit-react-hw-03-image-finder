@@ -16,7 +16,7 @@ export const Modal = ({
     >
       <div className={css.modal}>
         <img
-          className={css.modalIng}
+          className={css.modalImg}
           src={largeimage}
           alt={tags}
           //   style={{

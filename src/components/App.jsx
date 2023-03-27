@@ -5,7 +5,7 @@ import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import { Modal } from './Modal/Modal';
 
-import { SearchData } from './SearchData/SearchData';
+import { searchData } from '../service/SearchData/SearchData';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,16 +20,9 @@ export class App extends Component {
     tags: '',
     isModalOpen: false,
     isLoding: false,
-    windowHeight: null,
-    windowWidth: null,
   };
 
-  // const cenLoadMore = (this.state.totalHits/9) > this.state.page;
-
   componentDidMount() {
-    const windowHeight = window.innerHeight;
-    const windowWidth = window.innerWidth;
-    this.setState({ windowHeight, windowWidth });
     window.addEventListener('keydown', this.handlePressKeybord);
   }
 
@@ -52,7 +45,7 @@ export class App extends Component {
     if (prevState.page !== page || prevState.searchWord !== searchWord) {
       try {
         this.setState({ isLoding: true });
-        const answer = await SearchData(searchWord, page);
+        const answer = await searchData(searchWord, page);
         const answerJson = await answer.json();
 
         this.setState(prev => ({
@@ -77,11 +70,9 @@ export class App extends Component {
             theme: 'dark',
           });
         }
-
-        console.log(answerJson);
       } catch (error) {
         toast.error(error.message);
-        console.log(error.message);
+        console.error(error.message);
       } finally {
         this.setState({ isLoding: false });
       }
@@ -93,10 +84,9 @@ export class App extends Component {
   };
 
   hendleClickToImage = e => {
-    console.log(e.target.dataset.largeimage, e.target.dataset.tegs);
     this.setState({
       largeimage: e.target.dataset.largeimage,
-      tegs: e.target.dataset.tegs,
+      tags: e.target.dataset.tags,
       isModalOpen: true,
     });
   };
@@ -108,18 +98,8 @@ export class App extends Component {
   };
 
   render() {
-    const {
-      // searchWord,
-      page,
-      data,
-      totalHits,
-      isLoding,
-      largeimage,
-      tags,
-      isModalOpen,
-      // windowHeight,
-      // windowWidth,
-    } = this.state;
+    const { page, data, totalHits, isLoding, largeimage, tags, isModalOpen } =
+      this.state;
     return (
       <div>
         {isModalOpen && (
@@ -127,8 +107,6 @@ export class App extends Component {
             largeimage={largeimage}
             tags={tags}
             handleClicOnBackDrop={this.handleClicOnBackDrop}
-            // windowHeight={windowHeight}
-            // windowWidth={windowWidth}
           />
         )}
         <Searchbar handleSubmit={this.handleSubmit} />
